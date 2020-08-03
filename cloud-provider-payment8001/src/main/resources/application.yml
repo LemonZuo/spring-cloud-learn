@@ -1,0 +1,15 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: cloud-payment-provider
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://106.13.199.192:3308/cloud?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+      username: root
+      password: 980724
+
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.xzq.springcloud.entities  #所有entity别名所在包
