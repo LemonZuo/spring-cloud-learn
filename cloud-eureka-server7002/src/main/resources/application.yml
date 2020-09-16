@@ -1,0 +1,15 @@
+server:
+  port: 7002
+eureka:
+  instance:
+    hostname: eureka-server-7002 # 服务端实例名称
+  server:
+    # 关闭自我保护机制，确保及时下线不可用服务
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000
+  client:
+    register-with-eureka: false #禁止向注册中心注册自己
+    fetch-registry: false # 标识本实例为注册中心，复制维护服务实例
+    service-url:
+      # eureka交互地址
+      defaultZone: http://127.0.0.1:7001/eureka
