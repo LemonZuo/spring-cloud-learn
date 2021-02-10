@@ -41,12 +41,27 @@ public class PaymentController {
 
     }
 
+
     @GetMapping("/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable Long id, CommonResult commonResult) {
         Payment result = paymentService.getPaymentById(id);
         if (result != null) {
             commonResult.setCode(200);
             commonResult.setMessage(port+":查询成功");
+            commonResult.setData(result);
+        } else {
+            commonResult.setCode(444);
+            commonResult.setMessage("没有对应记录");
+        }
+        return commonResult;
+    }
+
+    @GetMapping("/payment/feignGet/{id}")
+    public CommonResult feignGetPaymentById(@PathVariable Long id, CommonResult commonResult) {
+        Payment result = paymentService.getPaymentById(id);
+        if (result != null) {
+            commonResult.setCode(200);
+            commonResult.setMessage("feign" + port+":查询成功");
             commonResult.setData(result);
         } else {
             commonResult.setCode(444);
