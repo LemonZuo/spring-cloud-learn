@@ -34,7 +34,7 @@ public class OrderFeignHystrixController {
      * @param id
      * @return
      */
-    String hystrixTimeoutHandler(@PathVariable("id") Long id) {
+    private String hystrixTimeoutHandler(@PathVariable("id") Long id) {
         return "80-hystrix:服务提供方暂时不可用";
     }
 
@@ -42,7 +42,7 @@ public class OrderFeignHystrixController {
      * 全局处理方案
      * @return
      */
-    String defaultHandler() {
+    private String defaultHandler() {
         String result = "服务器异常请稍后再试！！！";
         return result;
     }
