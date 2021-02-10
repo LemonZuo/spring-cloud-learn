@@ -21,6 +21,7 @@
         <module>../cloud-consumer-order-openfeign80</module>
         <module>../cloud-provider-payment-hystrix-8001</module>
         <module>../cloud-consumer-order-openfeign-hystrix80</module>
+        <module>../cloud-consumer-hystrix-9001</module>
     </modules>
 
     <!--统一管理jar包和版本-->
