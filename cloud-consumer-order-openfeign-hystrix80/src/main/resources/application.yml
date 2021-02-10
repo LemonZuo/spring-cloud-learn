@@ -16,3 +16,7 @@ ribbon:
   read-timeouot: 5000
   # 建立连接所用时间，适用于网络连接正常情况下，两端连接所用时间
   connect-timeout: 5000
+
+feign:
+  hystrix:
+    enabled: true
