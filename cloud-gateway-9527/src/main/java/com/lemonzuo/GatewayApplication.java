@@ -2,18 +2,16 @@ package com.lemonzuo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @author LemonZuo
- * @create 2020-08-02 12:24
+ * @create 2021-02-10 21:09
  */
 @SpringBootApplication
 @EnableEurekaClient
-@EnableDiscoveryClient
-public class PaymentMasterApplication {
+public class GatewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMasterApplication.class, args);
+        SpringApplication.run(GatewayApplication.class, args);
     }
 }

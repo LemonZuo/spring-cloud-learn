@@ -1,0 +1,30 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: payment_routh #路由ID,无固定规则，但要求唯一，建议搭配服务名称
+          uri: http://127.0.0.1:8001 #匹配后提供服务的路由地址
+          predicates:
+            - Path=/payment/get/** #断言，路径相匹配的进行路由
+        - id: payment_routh2
+          uri: http://127.0.0.1:8001
+          predicates:
+            - Path=/payment/info/**
+
+eureka:
+  instance:
+    instance-id: cloud-gateway-service
+    prefer-ip-address: true
+    # Eureka 客户端向服务端发送心跳时间间隔,默认30S
+    lease-renewal-interval-in-seconds: 1
+    # Eureka服务端在接收到最后一次心跳后等待时间上线, 默认90S, 超时将下线服务
+    lease-expiration-duration-in-seconds: 2
+    hostname: cloud-gateway-service
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
