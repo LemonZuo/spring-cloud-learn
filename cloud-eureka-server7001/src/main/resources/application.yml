@@ -12,4 +12,4 @@ eureka:
     fetch-registry: false # 标识本实例为注册中心，复制维护服务实例
     service-url:
       # eureka交互地址
-       default-zone: http://127.0.0.1:7001/eureka
+       defaultZone: http://127.0.0.1:7001/eureka
