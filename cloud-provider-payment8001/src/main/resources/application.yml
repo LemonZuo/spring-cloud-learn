@@ -9,6 +9,12 @@ spring:
       url: jdbc:mysql://47.98.35.82:3308/cloud?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
       username: root
       password: 980724
+  zipkin:
+    base-url: http//:127.0.0.1:9411 #zipkin 监控地址
+    sleuth:
+      sampler:
+        # 采样率介于0到1之间，1表示全部采集
+        probability: 1
 
 
 mybatis:

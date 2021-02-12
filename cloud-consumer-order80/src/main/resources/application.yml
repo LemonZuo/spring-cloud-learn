@@ -1,6 +1,12 @@
 spring:
   application:
     name: consumer-order
+  zipkin:
+    base-url: http://127.0.0.1:9411 #zipkin 监控地址
+    sleuth:
+      sampler:
+        # 采样率介于0到1之间，1表示全部采集
+        probability: 1
 server:
   port: 80
 eureka:

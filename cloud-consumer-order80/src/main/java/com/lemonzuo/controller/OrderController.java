@@ -33,4 +33,10 @@ public class OrderController {
         CommonResult result = template.getForObject(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
         return result;
     }
+
+    @GetMapping("consumer/payment/zipkin")
+    public String paymentZipkin() {
+        String result = template.getForObject(PAYMENT_URL + "/payment/zipkin", String.class);
+        return result;
+    }
 }
