@@ -8,4 +8,5 @@ spring:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yaml
-        group: MASTER_GROUP
+        group: MASTER_GROUP # Group名称
+        namespace: f5cfe353-e523-46db-ae97-449564119af8 # 命名空间ID
