@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848 # nacos服务地址
+        server-addr: 47.98.35.82:10000 # nacos服务地址
 management:
   endpoints:
     web:
