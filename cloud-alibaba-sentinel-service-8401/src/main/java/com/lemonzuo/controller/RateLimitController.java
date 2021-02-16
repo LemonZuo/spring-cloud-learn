@@ -2,6 +2,7 @@ package com.lemonzuo.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.lemonzuo.handle.CustomerBlockHandler;
 import com.lemonzuo.model.CommonResult;
 import com.lemonzuo.model.Payment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ public class RateLimitController {
     @GetMapping("/byResource")
     @SentinelResource(value = "byResource", blockHandler = "handleException")
     public CommonResult byResource() {
-        CommonResult result = new CommonResult(200, "按资源名称限流测试", new Payment(2020L, "SERIAL001"));
+        CommonResult result = new CommonResult(200, "按资源名称限流测试", new Payment(2021L, "SERIAL001"));
         return result;
     }
 
@@ -28,6 +29,24 @@ public class RateLimitController {
     @GetMapping("/byUrl")
     public CommonResult byUrl() {
         CommonResult result = new CommonResult(200, "按URL限流测试", new Payment(2021L, "SERIAL002"));
+        return result;
+    }
+
+    @GetMapping("/masterCustomerHandle")
+    @SentinelResource(value = "masterCustomerHandle",
+            blockHandlerClass = CustomerBlockHandler.class,
+            blockHandler = "masterHandleException")
+    public CommonResult customerHandle() {
+        CommonResult result = new CommonResult(200, "用户自定义", new Payment(2021L, "SERIAL003"));
+        return result;
+    }
+
+    @GetMapping("/slaverCustomerHandle")
+    @SentinelResource(value = "slaverCustomerHandle",
+            blockHandlerClass = CustomerBlockHandler.class,
+            blockHandler = "slaverHandleException")
+    public CommonResult slaverHandle() {
+        CommonResult result = new CommonResult(200, "用户自定义", new Payment(2021L, "SERIAL004"));
         return result;
     }
 }

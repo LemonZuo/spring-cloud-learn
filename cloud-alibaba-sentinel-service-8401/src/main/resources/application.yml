@@ -16,6 +16,7 @@ spring:
         dashboard: 127.0.0.1:10010
         # 默认8719，若被占用会一次+1扫描寻到到未被占用端口
         port: 8719
+      eager: true
 
 management:
   endpoints:
