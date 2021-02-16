@@ -1,0 +1,20 @@
+server:
+  port: 86
+spring:
+  application:
+    name: order-nacos-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.98.35.82:10000 # nacos服务地址
+    sentinel:
+      transport:
+        # sentinel dashboard 地址
+        # dashboard: 47.98.35.82:10010
+        dashboard: 127.0.0.1:10010
+        # 默认8719，若被占用会一次+1扫描寻到到未被占用端口
+        port: 8719
+      eager: true
+# 需要访问的服务提供者地址
+service-url:
+  nacos-user-service: http://payment-nacos-provider
