@@ -27,7 +27,10 @@ public class OrderNacosController {
     private String serviceUrl;
 
     @GetMapping("consumer/payment/get/{id}")
-    @SentinelResource(value = "getPayment", blockHandler = "handle")
+    @SentinelResource(value = "getPayment",
+            blockHandler = "handle",
+            fallback = "fallBack",
+            exceptionsToIgnore = IllegalArgumentException.class)
     public CommonResult getPayment(@PathVariable(name = "id") Long id) {
         CommonResult result = restTemplate.getForObject(serviceUrl + "/payment/get/" + id, CommonResult.class);
         if (id == 4) {
