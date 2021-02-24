@@ -18,3 +18,8 @@ spring:
 # 需要访问的服务提供者地址
 service-url:
   nacos-user-service: http://payment-nacos-provider
+
+# 激活sentinel对openFeign支持
+feign:
+  sentinel:
+    enabled: true
