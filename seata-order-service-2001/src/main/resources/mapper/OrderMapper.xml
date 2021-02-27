@@ -1,0 +1,12 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lemonzuo.mapper.OrderMapper">
+    <insert id="createOrder">
+        INSERT INTO tb_order (`user_id`, `product_id`, `count`, `money`, `status`)
+        VALUES (#{userId}, #{productId}, #{count}, #{money}, 0)
+    </insert>
+    <update id="update">
+        UPDATE tb_order SET user_id = #{userId}, status = #{status}
+    </update>
+</mapper>

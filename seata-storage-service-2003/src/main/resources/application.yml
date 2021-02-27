@@ -1,0 +1,27 @@
+server:
+  port: 2003
+
+spring:
+  application:
+    name: seata-storage-service
+  cloud:
+    alibaba:
+      seata:
+        # 配置事务组名称
+        tx-service-group: fsp_tx_group
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    druid:
+      url: jdbc:mysql://47.98.35.82:3308/seata_storage
+      username: root
+      password: SO10cbh1iN*6WlVk
+
+logging:
+  level:
+    io.seata: info
+    com.lemonzuo.mapper: debug
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
